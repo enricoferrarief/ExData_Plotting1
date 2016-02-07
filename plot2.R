@@ -5,7 +5,7 @@
 # with a one-minute sampling rate over a period of almost 4 years. Different electrical
 # quantities and some sub-metering values are available.
 
-# The following script creates a histogram showing the Global Active Power
+# The following script plots the Global Active Power against time of the day
 # during the dates 2007-02-01" and "2007-02-02"
 
 # Load used library
@@ -57,11 +57,11 @@ data <- data[data$Date %in% dates]
 datetime <- strptime(paste(data$Date, data$Time), format = "%Y-%m-%d %H:%M:%S", tz = "UTC")
 
 # Open the png graphics device
-png ("plot1.png", width = 480, height = 480)
+png ("plot2.png", width = 480, height = 480)
 
-# Build the first plot
+# Build the second plot
 par(bg = "transparent")
-hist(as.numeric(data$Global_active_power), col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
+plot(datetime, data$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
 
 # Close the graphics device
 dev.off()
