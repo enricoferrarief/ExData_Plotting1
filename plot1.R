@@ -21,7 +21,7 @@ data <- fread(filename, sep = ";", header = TRUE, na.strings = "?", verbose = TR
 data$Date = as.Date(data$Date, "%d/%m/%Y")
 
 # Store dates we want to analyze in a vector
-dates <- c(as.Date("2007-02-01"),as.Date("2007-02-02"))
+dates <- c(as.Date("2007-02-01"), as.Date("2007-02-02"))
 
 # Subset of the data, limited to the dates we need
 data <- data[data$Date %in% dates]
@@ -30,7 +30,7 @@ data <- data[data$Date %in% dates]
 hist(as.numeric(data$Global_active_power), col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
 
 # Copy the plot into a png file with the size required
-dev.copy(png, file = "plot1.png",width = 480, height = 480)
+dev.copy(png, file = "plot1.png", width = 480, height = 480)
 
 # Close the graphics device
 dev.off()
